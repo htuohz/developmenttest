@@ -78,12 +78,12 @@
             </div>
         </div>
         @if(isset($movies))
-        <ul class="list-unstyled">
+        <ul class="list-unstyled d-flex">
             @if(!is_array($movies))
             <li class="media" style="background:{{$movies->color}}">
                 <img class="mr-3 cover pull-left" width="64" height="64" src={{$movies->Poster}} alt={{$movies->Title}}>
-                <div class="media-body mt-0">
-                    <strong class="mt-0 mb-1">{{$movies->Title}}</strong>
+                <div class="media-body">
+                    <h4 class="mt-0 mb-1">{{$movies->Title}}</h4>
                     <p>Year: {{date("Y",strtotime($movies->Released))}}</p>
                     <p>Runtime: {{$movies->Runtime}}</p>
                 </div>
@@ -92,8 +92,8 @@
             @foreach ($movies as $moive)
             <li class="media">
                 <img class="mr-3 cover pull-left" width="64" height="64" src={{$movie->Poster}} alt={{$movie->Title}}>
-                <div class="media-body mt-0">
-                    <strong class="mt-0 mb-1">{{$movie->Title}}</strong>
+                <div class="media-body">
+                    <h5 class="mt-0 mb-1">{{$movie->Title}}</h5>
                     <p>{{$movie->Released}}</p>
                     <p>Year: {{date("Y",strtotime($movie->Released))}}</p>
                     <p>Runtime: {{$movie->Runtime}}</p>
