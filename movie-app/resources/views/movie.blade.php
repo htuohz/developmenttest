@@ -80,7 +80,7 @@
         @if(isset($movies))
         <ul class="list-unstyled">
             @if(!is_array($movies))
-            <li class="media">
+            <li class="media" style="background:{{$movies->color}}">
                 <img class="mr-3 cover pull-left" width="64" height="64" src={{$movies->Poster}} alt={{$movies->Title}}>
                 <div class="media-body mt-0">
                     <strong class="mt-0 mb-1">{{$movies->Title}}</strong>

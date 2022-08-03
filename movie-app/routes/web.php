@@ -25,5 +25,6 @@ Route::get('/search', function (Request $request) {
         'apikey' => env('OMDBAPI_KEY'),
         't' => $query
     ]);
+    $response['color'] = $query;
     return view('movie', ['movies' => json_decode($response)]);
 });
