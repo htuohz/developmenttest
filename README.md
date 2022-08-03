@@ -1,37 +1,37 @@
-## Developer Test
+## Files mainly touched
 
-### Overview
+├── README.md
+├── app
+├── artisan
+├── bootstrap
+├── resources
+│   ├── css
+│   ├── js
+│   ├── sass
+│   └── views
+│   └── movie.blade.php ---------------------Main View
+├── routes
+│   ├── api.php
+│   ├── channels.php
+│   ├── console.php
+│   └── web.php ---------------------------------Main API
 
-The Developer Test is a simple test we give our prospective web developers to see how they do given a coding task.
+## How to start the project locally
 
-The premise is simple, create a simple website that will be able to perform a search using the Search API for movies containing any of the following words: red, green, blue or yellow.
+```Shell
+cd movie-app
+cp .env.example .env
+php artisan key:generate
+```
 
-The output should be a web page that displays matching movies with their details (title, year, runtime and image) on a page. Also, extract the first matching word in the movie title from the list of colours and show it somewhere on the movie details (maybe as the background colour).
+Add your api key to .env file, then
 
-Things we are looking for:
-- use of a backend framework / CMS (eg, Wordpress, Laravel)
-- use of a frontend framework (eg, JQuery, Bootstrap)
-- use of a front end pre-processor (eg, Gulp, Yarn)
-- use of git (please provide your git log)
-- use of a database
+```Shell
+php artisan serve
+```
 
-Optional functionality you may like to include
- - Caching of search results
- - Good use of DOM counts
- - Mobile Responsiveness
- - Lighthouse performance export
+Go to link localhost:8000
 
-Notes:
-* Your HTML and CSS should pass W3 validation
+## Other comments
 
-### Instructions
-
-1. Clone this repository to your Github account (don't fork it please)
-2. Create your website, commit it and then push it to Github
-3. Email us a link to your completed code
-4. You're done!
-
-### Handy Links
-
-* [http://omdbapi.com/](http://omdbapi.com/)
-* [http://www.w3.org/QA/Tools/](http://www.w3.org/QA/Tools/)
+Honestly, I haven't used laravel framework before. Give the fact I don't have much time to complete the task, this project is way from perfect. I'm more than happy to improve my skills in future if you would recognize my learning skills and potential.
