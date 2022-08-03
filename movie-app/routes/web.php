@@ -21,10 +21,22 @@ Route::get('/', function () {
 
 Route::get('/search', function (Request $request) {
     $query = $request->input('query');
-    $response = Http::get('http://www.omdbapi.com', [
-        'apikey' => env('OMDBAPI_KEY'),
-        't' => $query
-    ]);
-    $response['color'] = $query;
-    return view('movie', ['movies' => json_decode($response)]);
+    if (!in_array(strtolower($query), array("red", "green", "blue", "yellow"))) {
+        response("invalid input", 401);
+    }
+    try {
+        $response = Http::get('http://www.omdbapi.com', [
+            'apikey' => env('OMDBAPI_KEY'),
+            't' => $query
+        ]);
+        $movies = array();
+        $response = json_decode($response);
+        array_push($movies, $response);
+        foreach ($movies as $movie) {
+            $movie->color = $query;
+        }
+        return view('movie', ['movies' => $movies]);
+    } catch (Error $err) {
+        response("Error occured", 400);
+    }
 });
